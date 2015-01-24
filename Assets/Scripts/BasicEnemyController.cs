@@ -58,7 +58,6 @@ public class BasicEnemyController : MonoBehaviour
 		float distance = Mathf.Abs(wizard.transform.position.x - transform.position.x);
 		if (distance < enemyRange) {
 			attackMode = true;
-			Debug.Log("ATTACK! ATTACK!");
 		}
 	}
 
