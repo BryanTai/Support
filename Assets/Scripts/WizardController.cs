@@ -4,6 +4,7 @@ using System.Collections;
 public class WizardController : MonoBehaviour {
 
 	public float speed;
+	public float jumpheight;
 
 	// Update is called once per frame
 	void Update () {
