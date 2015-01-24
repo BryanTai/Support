@@ -6,7 +6,7 @@ public class WizardController : MonoBehaviour {
 	public float speed;
 
 	public float jumpHeight;
-	private int numJump;
+	public int numJump;
 	public bool isJumping = false;
 
 
@@ -18,7 +18,7 @@ public class WizardController : MonoBehaviour {
 
 		// Keyboard jump movement
 		if (Input.GetKeyDown (KeyCode.W)) {
-			if(isJumping == false || count < 2) {
+			if(isJumping == false || numJump < 2) {
 				// only jump if we are on the ground
 				rigidbody2D.AddForce (Vector2.up * jumpHeight);
 				isJumping = true;
@@ -33,6 +33,7 @@ public class WizardController : MonoBehaviour {
 			// when we collide with ground 
 			isJumping = false;
 			numJump = 0;
+
 		}
 	}
 	

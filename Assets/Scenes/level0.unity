@@ -262,6 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   jumpHeight: 500
+  numJump: 0
   isJumping: 0
 --- !u!1 &612491989
 GameObject:
