@@ -15,8 +15,5 @@ public class WizardController : MonoBehaviour {
 		transform.Translate (0, translationV, 0);
 	}
 
-	void FixedUpdate(){
-		rigidbody2D.AddForce (Vector2.up *speed* Time.deltaTime);
 
-	}
 }
