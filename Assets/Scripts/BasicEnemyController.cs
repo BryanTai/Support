@@ -8,7 +8,7 @@ public class BasicEnemyController : MonoBehaviour
 	public int speed = 2;
 	public float leftLimit, rightLimit;
 	bool attackMode = false;
-	int direction = 1;
+	public int direction = 1;
 
 
 
@@ -53,18 +53,23 @@ public class BasicEnemyController : MonoBehaviour
 
 	}
 
+	void OnTriggerEnter2D(Collider2D trigger) {
+		Debug.Log ("collided with: " + trigger.gameObject.tag);
+		if (!attackMode && trigger.gameObject.tag == "PlatformBorder") {
+			// Turn around when at edge of platform
+			direction *= -1;
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D other){
+
+	}
+
 	//Basic movement for Basic Enemy
 	void Waddle ()
 	{
 		Vector3 move = new Vector3(direction * speed * Time.deltaTime, 0);
 		transform.Translate(move);
-		Debug.Log ("Vector3 = " + move);
-
-		if (transform.position.x <= leftLimit) {
-				direction = 1;
-		} else if (transform.position.x >= rightLimit) {
-				direction = -1;
-		}
 	}
 
 
