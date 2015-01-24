@@ -85,7 +85,7 @@ GameObject:
   - 212: {fileID: 127452548}
   - 61: {fileID: 127452547}
   m_Layer: 0
-  m_Name: GrassSprite
+  m_Name: GrassPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 214283253}
   m_Layer: 0
-  m_Name: Grass
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,7 +259,7 @@ GameObject:
   - 212: {fileID: 612491991}
   - 61: {fileID: 612491990}
   m_Layer: 0
-  m_Name: GrassSprite
+  m_Name: GrassPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,7 +411,7 @@ GameObject:
   - 212: {fileID: 1253988149}
   - 61: {fileID: 1253988148}
   m_Layer: 0
-  m_Name: GrassSprite
+  m_Name: GrassPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -691,7 +691,7 @@ GameObject:
   - 212: {fileID: 1797822904}
   - 61: {fileID: 1797822903}
   m_Layer: 0
-  m_Name: GrassSprite
+  m_Name: GrassPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -755,7 +755,7 @@ GameObject:
   - 212: {fileID: 1815359404}
   - 61: {fileID: 1815359403}
   m_Layer: 0
-  m_Name: GrassSprite
+  m_Name: GrassPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
