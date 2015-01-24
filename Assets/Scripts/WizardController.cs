@@ -43,7 +43,7 @@ void OnCollisionEnter2D(Collision2D other){
 		// Activate invincibility frames
 	}
 	
-	if (other.gameObject.tag == "Ground") {
+	if (other.gameObject.tag == "Platform") {
 		// when we collide with ground 
 		isJumping = false;
 		numJump = 0;
