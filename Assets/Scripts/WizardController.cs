@@ -8,12 +8,17 @@ public class WizardController : MonoBehaviour {
 	public float jumpHeight;
 	public int numJump;
 	public bool isJumping = false;
+	private int MAX_SPEED = 30;
 
 
 	// Update is called once per frame
 	void Update () {
 		// Keyboard horizontal movement
+		if (speed > MAX_SPEED) {
+			speed= MAX_SPEED;
+		}
 		var translationH = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
+		Debug.Log("magnitude of axis " + Input.GetAxis("Horizontal"));
 		transform.Translate (translationH, 0, 0);
 
 		// Keyboard jump movement
