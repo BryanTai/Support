@@ -6,7 +6,6 @@ public class BasicEnemyController : MonoBehaviour
 
 	public int enemyRange = 2;
 	public int speed = 2;
-	float leftLimit, rightLimit;
 	bool attackMode = false;
 	public int direction = 1;
 
@@ -17,16 +16,8 @@ public class BasicEnemyController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-
 		wizard = GameObject.Find ("Wizard");
 
-		Debug.Log ("Wizard is at " + wizard.transform.position.x);
-
-		//if (leftLimit == 0f && rightLimit == 0f) {
-			leftLimit =  transform.position.x - enemyRange;
-			rightLimit = transform.position.x + enemyRange;
-		//}
-		Debug.Log ("Enemy Range is " + leftLimit + " to " + rightLimit);
 	}
 
 	// Update is called once per frame
@@ -58,7 +49,6 @@ public class BasicEnemyController : MonoBehaviour
 
 		Vector3 attack = new Vector3(direction * 2 * speed * Time.deltaTime, 0);
 		transform.Translate(attack);
-		Debug.Log ("Attack Vector = " + attack);
 
 	}
 
@@ -73,7 +63,6 @@ public class BasicEnemyController : MonoBehaviour
 	}
 
 	void OnTriggerEnter2D(Collider2D trigger) {
-		Debug.Log ("collided with: " + trigger.gameObject.tag);
 		if (!attackMode && trigger.gameObject.tag == "PlatformBorder") {
 			// Turn around when at edge of platform
 			direction *= -1;
