@@ -4,9 +4,12 @@ using System.Collections;
 public class MinionsController : MonoBehaviour {
 	
 	Vector3 newPosition;
+	private bool flag = false;
+	private float xAxis;
+
 	void Start() 
 	{
-		newPosition = transform.position;
+		xAxis = gameObject.transform.position.x;
 	}
 	
 	void Update() 
@@ -15,10 +18,15 @@ public class MinionsController : MonoBehaviour {
 		{
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(ray, out hit)){
+			if (Physics.Raycast(ray,out hit)){
+				flag = true;
 				newPosition =hit.point;
-				transform.position = newPosition;
+				newPosition.x = xAxis;
 			}
 		}
+		if (flag) {
+						gameObject.transform.position = Vector3.Lerp (gameObject.transform.position, newPosition, 200);
+				}
+
 	}
 }
