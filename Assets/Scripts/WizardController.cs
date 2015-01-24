@@ -8,6 +8,7 @@ public class WizardController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		var translation = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
+
 		transform.Translate (translation, 0, 0);
 	
 	}
