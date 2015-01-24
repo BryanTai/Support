@@ -13,6 +13,9 @@ public class WizardController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//Lock Rotations
+		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.z, 0, 0);
+		
 		// Keyboard horizontal movement
 		if (speed > MAX_SPEED) {
 			speed= MAX_SPEED;
@@ -32,14 +35,19 @@ public class WizardController : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D col) {
-		//http://www.youtube.com/watch?v=t1GB1dl_aj0
-		if (col.gameObject.tag == "Ground") {
-			// when we collide with ground 
-			isJumping = false;
-			numJump = 0;
 
-		}
+void OnCollisionEnter2D(Collision2D other){
+	
+	if (other.gameObject.tag == "enemy") {
+		//Wizard touched enemy, lose a health
+		// Activate invincibility frames
 	}
 	
+	if (other.gameObject.tag == "Ground") {
+		// when we collide with ground 
+		isJumping = false;
+		numJump = 0;
+		
+	}
+}
 }
