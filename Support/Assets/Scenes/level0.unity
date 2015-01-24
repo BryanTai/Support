@@ -182,7 +182,7 @@ GameObject:
   - 50: {fileID: 275240232}
   - 61: {fileID: 275240231}
   m_Layer: 0
-  m_Name: wizard
+  m_Name: Wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
