@@ -7,6 +7,9 @@ public class WizardController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//Lock Rotations
+		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.z, 0, 0);
+
 		var translation = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
 		transform.Translate (translation, 0, 0);
 	

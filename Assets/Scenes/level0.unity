@@ -380,9 +380,10 @@ GameObject:
   - 212: {fileID: 944790281}
   - 50: {fileID: 944790280}
   - 61: {fileID: 944790279}
+  - 114: {fileID: 944790283}
   m_Layer: 0
   m_Name: basicenemy
-  m_TagString: basicenemy
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,11 +446,23 @@ Transform:
   m_PrefabInternal: {fileID: 1119340514}
   m_GameObject: {fileID: 944790278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.01000023, y: -1.25999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1173048385}
   m_RootOrder: 0
+--- !u!114 &944790283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11422552, guid: 252a7ad4c29b56d4e9d0d33df4772e4a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1119340514}
+  m_GameObject: {fileID: 944790278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11de52ae34d4dff409381e289aded8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1033517255
 Prefab:
   m_ObjectHideFlags: 0
@@ -566,11 +579,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400784, guid: 252a7ad4c29b56d4e9d0d33df4772e4a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.01000023
       objectReference: {fileID: 0}
     - target: {fileID: 400784, guid: 252a7ad4c29b56d4e9d0d33df4772e4a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.25999999
       objectReference: {fileID: 0}
     - target: {fileID: 400784, guid: 252a7ad4c29b56d4e9d0d33df4772e4a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -594,6 +607,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400784, guid: 252a7ad4c29b56d4e9d0d33df4772e4a, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100784, guid: 252a7ad4c29b56d4e9d0d33df4772e4a, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000784, guid: 252a7ad4c29b56d4e9d0d33df4772e4a, type: 2}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -11,9 +11,10 @@ GameObject:
   - 212: {fileID: 21200784}
   - 50: {fileID: 5000784}
   - 61: {fileID: 6100784}
+  - 114: {fileID: 11422552}
   m_Layer: 0
   m_Name: basicenemy
-  m_TagString: basicenemy
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,6 +57,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: .600000024, y: .600000024}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11422552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11de52ae34d4dff409381e289aded8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200784
 SpriteRenderer:
   m_ObjectHideFlags: 1
