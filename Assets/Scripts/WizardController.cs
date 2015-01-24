@@ -13,15 +13,12 @@ public class WizardController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//Lock Rotations
-		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.z, 0, 0);
 		
 		// Keyboard horizontal movement
 		if (speed > MAX_SPEED) {
 			speed= MAX_SPEED;
 		}
 		var translationH = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
-		Debug.Log("magnitude of axis " + Input.GetAxis("Horizontal"));
 		transform.Translate (translationH, 0, 0);
 
 		// Keyboard jump movement

@@ -23,8 +23,6 @@ public class BasicEnemyController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		//Lock Rotations
-		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.z, 0, 0);
 		if (attackMode) {
 
 			Attack ();
