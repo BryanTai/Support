@@ -4,6 +4,7 @@ using System.Collections;
 public class WizardController : MonoBehaviour {
 
 	const float SPEED = 10;
+	public const int MAX_HEALTH = 10;
 
 	public float jumpHeight;
 	public int numJump;
@@ -11,9 +12,13 @@ public class WizardController : MonoBehaviour {
 
 	public Transform commandBubble;
 	public Camera mainCamera;
+	public Transform healthbar;
 
 	public int maxMinions;
-	int currentMinions;
+	int currentMinions = 0;
+
+	public int health = 10;
+
 
 	// Update is called once per frame
 	void Update () {
@@ -82,7 +87,9 @@ public class WizardController : MonoBehaviour {
 			}else{
 				//Get hurt, lose a health
 				// Activate invincibility frames
+				health -= 1;
 
+				((BarAnimation) healthbar.gameObject.GetComponent("BarAnimation")).UpdateBar();
 				Debug.Log("OW! " + relativePosition );
 			}
 
@@ -99,9 +106,10 @@ public class WizardController : MonoBehaviour {
 	void ConvertMinion (GameObject enemy)
 	{
 		if (currentMinions <= maxMinions) {
-			Vector3 position = enemy.transform.position;
+
 
 			// TODO: instantiate minions here
+			//Vector3 position = enemy.transform.position;
 		}
 	}
 }

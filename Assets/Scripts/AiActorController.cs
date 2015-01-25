@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class AiActorController : MonoBehaviour {
 
 	public int speed;
+	public int health = 100;
 
 	// Use this for initialization
 	void Start () {
