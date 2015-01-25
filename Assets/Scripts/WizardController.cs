@@ -32,9 +32,9 @@ public class WizardController : MonoBehaviour {
 	
 	void Start(){
 		currentMinions = GameObject.FindGameObjectsWithTag ("Minion").Length;
-		gameScoreText.text = score.ToString();
-		minionCountText.text = currentMinions.ToString() + " / " + MAX_MINIONS.ToString ();
-		wizardHealthText.text = health.ToString();
+		gameScoreText.text = "Score: " + score.ToString();
+		minionCountText.text = "Minions: " + currentMinions.ToString() + " / " + MAX_MINIONS.ToString ();
+		wizardHealthText.text = "Health: " + health.ToString();
 	}
 
 	// Update is called once per frame
