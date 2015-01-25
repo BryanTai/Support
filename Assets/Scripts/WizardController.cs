@@ -12,10 +12,8 @@ public class WizardController : MonoBehaviour {
 	public Transform commandBubble;
 	public Camera mainCamera;
 
-
-
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		HandleInput ();
 	}
 
