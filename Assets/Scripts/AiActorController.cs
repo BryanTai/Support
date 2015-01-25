@@ -50,7 +50,6 @@ public abstract class AiActorController : MonoBehaviour {
 	}
 
 	protected void OnTriggerEnter2D(Collider2D trigger) {
-		Debug.Log ("JUMP~");
 		if (!inAir && trigger.gameObject.tag == "JumpTrigger") {
 			Jump();
 		}
