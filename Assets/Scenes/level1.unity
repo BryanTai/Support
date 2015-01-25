@@ -305,7 +305,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  health: 100
   state: 0
 --- !u!61 &67890567
 BoxCollider2D:
@@ -596,10 +595,10 @@ MonoBehaviour:
   numJump: 0
   isJumping: 0
   commandBubble: {fileID: 1427504305}
+  minion: {fileID: 415938, guid: b8dad749b6e2dca4a9bcfb27245a9fd8, type: 2}
   mainCamera: {fileID: 1761988756}
-  healthbar: {fileID: 11096056}
   maxMinions: 0
-  health: 10
+  currentMinions: 0
 --- !u!111 &275240236
 Animation:
   m_ObjectHideFlags: 0
@@ -1115,7 +1114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  health: 100
   enemyRange: 2
   direction: -1
 --- !u!1001 &953435779
@@ -1206,7 +1204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  health: 100
   state: 0
 --- !u!61 &968530565
 BoxCollider2D:
@@ -2167,7 +2164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  health: 100
   enemyRange: 2
   direction: 1
 --- !u!61 &1409777102
@@ -3165,7 +3161,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  health: 100
   enemyRange: 2
   direction: 1
 --- !u!61 &2017149463
@@ -3275,7 +3270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  health: 100
   state: 0
 --- !u!61 &2093689319
 BoxCollider2D:
