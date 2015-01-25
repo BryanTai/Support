@@ -34,7 +34,6 @@ public abstract class AiActorController : MonoBehaviour {
 
 	void RandomizeJumpTimer() {
 		randomJumpTimer = Random.value * (MAX_JUMP_TIME - MIN_JUMP_TIME) + MIN_JUMP_TIME;
-		Debug.Log (randomJumpTimer);
 	}
 
 	protected void Move(Vector3 target) {
@@ -64,5 +63,23 @@ public abstract class AiActorController : MonoBehaviour {
 		if (other.gameObject.tag == "Platform") {
 			inAir = false;
 		}
+	}
+
+	protected GameObject FindNearestGameObject(string tag) {
+		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag (tag);
+
+		GameObject nearestObject = null;
+		float nearestDistance = Mathf.Infinity;
+
+		foreach(GameObject o in gameObjects){
+			float distance = Vector3.Distance(o.transform.position, this.transform.position);
+			if( distance < nearestDistance){
+				nearestObject = o;
+				nearestDistance = distance;
+			}
+		}
+
+		return nearestObject;
+
 	}
 }
