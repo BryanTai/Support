@@ -34,14 +34,12 @@ public class BasicMinionController : AiActorController {
 	}
 
 	void SeekTarget() {
-		Debug.Log ("Seeking target");
 		
 		// Change target to the nearestEnemy
 		GameObject nearestEnemy = FindNearestGameObject ("Enemy");
 		targetEnemy = (nearestEnemy != null) ? nearestEnemy : targetEnemy;
 
 		if (targetEnemy != null) {
-			Debug.Log("Targeting: " + targetEnemy);
 			Move (targetEnemy.transform.position);
 		}
 	}
