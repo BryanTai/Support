@@ -5,6 +5,7 @@ public class BasicMinionController : AiActorController {
 
 	public enum AiState { STANDBY, MOVE, ATTACK }
 	public AiState state = AiState.STANDBY;
+	public Animator animator;
 
 	GameObject commandBubble;
 
@@ -21,6 +22,10 @@ public class BasicMinionController : AiActorController {
 	// Update is called once per frame
 	new void Update () {
 		base.Update ();
+
+		if (health <= 0)
+			Die ();
+
 		LookForCommandBubble ();
 
 		if (state == AiState.ATTACK) {
@@ -31,6 +36,17 @@ public class BasicMinionController : AiActorController {
 			// TODO: Idle animation?
 			// "What do we do now?"
 		}
+	}
+
+	void Die() {
+		animator.SetBool ("isAlive", false);
+		// TODO: FIXME THIS CODE IS A HACK
+		StartCoroutine (removeFromScreen (2.0f));
+		Destroy (this);
+	}
+	
+	private IEnumerator removeFromScreen(float seconds) {
+		yield return new WaitForSeconds(seconds);
 	}
 
 	void SeekTarget() {
@@ -66,6 +82,13 @@ public class BasicMinionController : AiActorController {
 
 	void MoveToCommandBubble() {
 		Move (commandBubble.transform.position);
+	}
+
+	new void OnCollisionEnter2D(Collision2D other) {
+		base.OnCollisionEnter2D (other);
+		if (other.gameObject.tag == "Enemy") {
+			((BasicEnemyController) other.gameObject.GetComponent ("BasicEnemyController")).health -= 10;
+		}
 	}
 
 }

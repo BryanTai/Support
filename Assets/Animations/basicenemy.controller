@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BasicMinion
+  m_Name: basicenemy
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: isAlive
@@ -14,10 +14,16 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
+  - m_Name: attack
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
-    m_StateMachine: {fileID: 110791162}
+    m_StateMachine: {fileID: 110786034}
     m_Mask: {fileID: 0}
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
@@ -26,55 +32,35 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1101 &110137096
+--- !u!1101 &110105510
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110291158}
-  m_DstState: {fileID: 110291160}
-  m_TransitionDuration: .576923072
-  m_TransitionOffset: 0
-  m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: isAlive
-    m_EventTreshold: 0
-    m_ExitTime: .423076928
-  m_Atomic: 1
-  m_Solo: 0
-  m_Mute: 0
-  m_CanTransitionToSelf: 0
---- !u!1101 &110151918
-Transition:
-  serializedVersion: 2
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_SrcState: {fileID: 110291160}
-  m_DstState: {fileID: 110291158}
+  m_SrcState: {fileID: 110286034}
+  m_DstState: {fileID: 110277960}
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: isAlive
+  - m_ConditionMode: 1
+    m_ConditionEvent: attack
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1101 &110167574
+--- !u!1101 &110109344
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110291160}
-  m_DstState: {fileID: 110291162}
+  m_SrcState: {fileID: 110286034}
+  m_DstState: {fileID: 110203888}
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
@@ -86,78 +72,98 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1102 &110291158
+--- !u!1101 &110179410
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110277960}
+  m_DstState: {fileID: 110286034}
+  m_TransitionDuration: .483870983
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: attack
+    m_EventTreshold: 0
+    m_ExitTime: .516129017
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1102 &110203888
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: minion_attack
+  m_Name: enemy_death
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: fa5a4e25c600aeb45a480105821dcbef, type: 2}
-  m_ParentStateMachine: {fileID: 110791162}
-  m_Position: {x: 120, y: 180, z: 0}
+  - {fileID: 7400000, guid: 475cde0baafc4fd4289a7885bbaf6d02, type: 2}
+  m_ParentStateMachine: {fileID: 110786034}
+  m_Position: {x: -12, y: 144, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110291160
+--- !u!1102 &110277960
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: minion_idle
+  m_Name: enemy_attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: de159e039390ac140b9a8537bf6d34f5, type: 2}
-  m_ParentStateMachine: {fileID: 110791162}
-  m_Position: {x: 12, y: 84, z: 0}
+  - {fileID: 7400000, guid: f4ca83a1c7f02394880c783bb09ea930, type: 2}
+  m_ParentStateMachine: {fileID: 110786034}
+  m_Position: {x: 216, y: 144, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110291162
+--- !u!1102 &110286034
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: minion_death
+  m_Name: enemy_idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 4c4c7f321c6ec34478a7f07bcefb5e5e, type: 2}
-  m_ParentStateMachine: {fileID: 110791162}
-  m_Position: {x: 216, y: 24, z: 0}
+  - {fileID: 7400000, guid: c16df7613b44fe74488aa76403b556a9, type: 2}
+  m_ParentStateMachine: {fileID: 110786034}
+  m_Position: {x: 228, y: 12, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1107 &110791162
+--- !u!1107 &110786034
 StateMachine:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110291160}
+  m_DefaultState: {fileID: 110286034}
   m_States:
-  - {fileID: 110291162}
-  - {fileID: 110291160}
-  - {fileID: 110291158}
+  - {fileID: 110286034}
+  - {fileID: 110203888}
+  - {fileID: 110277960}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110291158}
+      first: {fileID: 110277960}
       second:
-      - {fileID: 110137096}
+      - {fileID: 110179410}
     data:
-      first: {fileID: 110291160}
-      second:
-      - {fileID: 110167574}
-      - {fileID: 110151918}
-    data:
-      first: {fileID: 110291162}
+      first: {fileID: 110203888}
       second: []
+    data:
+      first: {fileID: 110286034}
+      second:
+      - {fileID: 110105510}
+      - {fileID: 110109344}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

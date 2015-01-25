@@ -6,6 +6,7 @@ public class BasicEnemyController : AiActorController {
 	public int enemyRange;
 	bool attackMode = false;
 	public int direction = 1;
+	public Animator animator;
 
 	GameObject wizard;
 	GameObject[] minions;
@@ -23,13 +24,26 @@ public class BasicEnemyController : AiActorController {
 	// Update is called once per frame
 	new void Update () {
 		base.Update ();
-
+		if (health <= 0)
+			Die ();
 		if (attackMode) {
 			Attack ();
 		} else {
 			Waddle ();
 			CheckForAttack ();
 		}
+	}
+
+	void Die() {
+		animator.SetBool ("isAlive", false);
+		// TODO: FIXME THIS CODE IS A HACK
+		StartCoroutine (removeFromScreen (2.0f));
+		
+		Destroy (this);
+	}
+	
+	private IEnumerator removeFromScreen(float seconds) {
+		yield return new WaitForSeconds(seconds);
 	}
 
 	//Move towards designated target
@@ -89,5 +103,11 @@ public class BasicEnemyController : AiActorController {
 		Move (target);
 	}
 
+	new void OnCollisionEnter2D(Collision2D other) {
+		base.OnCollisionEnter2D (other);
+		if (other.gameObject.tag == "Minion") {
+			((BasicMinionController) other.gameObject.GetComponent ("BasicMinionController")).health -= 10;
+		}
+	}
 
 }
