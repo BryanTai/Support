@@ -93,6 +93,9 @@ public class WizardController : MonoBehaviour {
 				//Get hurt, lose a health
 				// Activate invincibility frames
 
+				health -= 1;
+				
+				((BarAnimation) healthbar.gameObject.GetComponent("BarAnimation")).UpdateBar();
 				Debug.Log("OW! " + relativePosition );
 			}
 
