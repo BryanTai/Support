@@ -62,6 +62,13 @@ public abstract class AiActorController : MonoBehaviour {
 	protected void OnCollisionEnter2D(Collision2D other){ 
 		if (other.gameObject.tag == "Platform") {
 			inAir = false;
+		} else if (other.gameObject.tag == "Minion" || other.gameObject.tag == "Enemy") {
+			// Check if we're landing on the actor
+			Vector3 relativePosition = transform.InverseTransformPoint(other.transform.position);
+			if (Mathf.Abs(relativePosition.x) < -relativePosition.y){
+				// We landed on it so we can jump again
+				inAir = false;
+			}
 		}
 	}
 
