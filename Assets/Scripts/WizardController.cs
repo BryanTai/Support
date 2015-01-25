@@ -45,9 +45,9 @@ public class WizardController : MonoBehaviour {
 
 	void HandleGameStats() {
 		score += (int)Time.time;
-		gameScoreText.text = score.ToString ();
-		minionCountText.text = currentMinions.ToString() + " / " + MAX_MINIONS.ToString ();
-		wizardHealthText.text = health.ToString();
+		gameScoreText.text = "Score: " + score.ToString ();
+		minionCountText.text = "Minions: " + currentMinions.ToString() + " / " + MAX_MINIONS.ToString ();
+		wizardHealthText.text = "Health: " + health.ToString();
 	}
  
 	void HandleInput ()
@@ -117,7 +117,7 @@ public class WizardController : MonoBehaviour {
 				//Get hurt, lose a health
 				// TODO: Activate invincibility frames
 
-				health -= 1;
+				if(health>0){health -= 1;}
 				
 				((BarAnimation) healthbar.gameObject.GetComponent("BarAnimation")).UpdateBar();
 				Debug.Log("OW! " + relativePosition );
