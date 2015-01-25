@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BasicEnemyController : MonoBehaviour
+public class BasicEnemyController : AiActorController
 {
 
 	public int enemyRange = 2;
-	public int speed = 2;
 	bool attackMode = false;
 	public int direction = 1;
 
@@ -16,6 +15,7 @@ public class BasicEnemyController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		speed = 2;
 		wizard = GameObject.Find ("Wizard");
 
 	}
@@ -38,32 +38,27 @@ public class BasicEnemyController : MonoBehaviour
 	}
 
 	//Move towards whoever's in range
-	void Attack ()
-	{
-		float deltaX = wizard.transform.position.x - transform.position.x;
-
-		if (deltaX > 0) { direction = 1;} 
-		else {direction = -1;}
-
-		Vector3 attack = new Vector3(direction * 2 * speed * Time.deltaTime, 0);
-		transform.Translate(attack);
-
+	void Attack () {
+		Move (wizard.transform.position);
 	}
 
 	//If Wizard or Minion in range, attack them.
 	void CheckForAttack ()
 	{
-		float distance = Mathf.Abs(wizard.transform.position.x - transform.position.x);
+		float distance = Vector3.Distance (wizard.transform.position, this.transform.position);
+	
 		if (distance < enemyRange) {
 			attackMode = true;
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D trigger) {
-		if (!attackMode && trigger.gameObject.tag == "PlatformBorder") {
-			// Turn around when at edge of platform
-			direction *= -1;
-		}
+			if (!attackMode && trigger.gameObject.tag == "PlatformBorder") {
+				// Turn around when at edge of platform
+				direction *= -1;
+			} else if (attackMode) {
+				
+			}
 	}
 
 	void OnCollisionEnter2D(Collision2D other){

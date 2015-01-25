@@ -12,6 +12,9 @@ public class WizardController : MonoBehaviour {
 	public Transform commandBubble;
 	public Camera mainCamera;
 
+	public int maxMinions;
+	int currentMinions;
+
 	// Update is called once per frame
 	void Update () {
 		HandleInput ();
@@ -63,8 +66,26 @@ public class WizardController : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other){
 		
 		if (other.gameObject.tag == "enemy") {
-			//Wizard touched enemy, lose a health
-			// Activate invincibility frames
+			//Wizard touched enemy
+
+			//Check if we goomba stomped
+			Vector3 relativePosition = transform.InverseTransformPoint(other.transform.position);
+
+			if (Mathf.Abs(relativePosition.x) < -relativePosition.y){
+				//Successful stomp
+
+				//Convert if goomba stomp
+				// else, do nothing.
+
+				ConvertMinion (other.gameObject);
+				Debug.Log("STOMP! " + relativePosition );
+			}else{
+				//Get hurt, lose a health
+				// Activate invincibility frames
+
+				Debug.Log("OW! " + relativePosition );
+			}
+
 		}
 		
 		if (other.gameObject.tag == "Platform") {
@@ -75,4 +96,12 @@ public class WizardController : MonoBehaviour {
 		}
 	}
 
+	void ConvertMinion (GameObject enemy)
+	{
+		if (currentMinions <= maxMinions) {
+			Vector3 position = enemy.transform.position;
+
+			// TODO: instantiate minions here
+		}
+	}
 }

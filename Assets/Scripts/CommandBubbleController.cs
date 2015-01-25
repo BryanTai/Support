@@ -5,7 +5,7 @@ public class CommandBubbleController : MonoBehaviour {
 
 	public const float DURATION = 5;
 	public float timeLeft = 0;
-	public bool active = false;
+	public bool isActive = false;
 
 	// Use this for initialization
 	void Start () {
@@ -23,14 +23,14 @@ public class CommandBubbleController : MonoBehaviour {
 	}
 
 	void Disable () {
-		this.active = false;
+		this.isActive = false;
 		renderer.enabled = false;
 	}
 
 	public void Enable(Vector3 position) {
 		transform.position = position;
 		renderer.enabled = true;
-		this.active = true;
+		this.isActive = true;
 
 		this.timeLeft = DURATION;
 	}
