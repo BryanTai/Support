@@ -1,36 +1,55 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class WizardController : MonoBehaviour {
 
-	const float SPEED = 10;
-	public const int MAX_HEALTH = 10;
-	const string MINON_NAME = "BasicMinion";
-
+	// Movements
 	public float jumpHeight;
 	public int numJump;
 	public bool isJumping = false;
-
+	const float SPEED = 10;
+	
 	public Transform commandBubble;
-	public Transform minion;
 	public Camera mainCamera;
+
+	// Stats
+	public Text gameScoreText;
+	public int score = 0;
+	public Text minionCountText;
+	public Text wizardHealthText;
+
+	// Minions
+	const int MAX_MINIONS = 5;
+	public int currentMinions;
+	public Transform minion;
+	const string MINON_NAME = "BasicMinion";
+
+	// Health
 	public Transform healthbar;
-
-	public int maxMinions;
-	public int currentMinions = 0;
-
 	public int health = 10;
-
+	public const int MAX_HEALTH = 10;
+	
 	void Start(){
 		currentMinions = GameObject.FindGameObjectsWithTag ("Minion").Length;
-		maxMinions = 5;
+		gameScoreText.text = score.ToString();
+		minionCountText.text = currentMinions.ToString() + " / " + MAX_MINIONS.ToString ();
+		wizardHealthText.text = health.ToString();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		HandleInput ();
+		HandleGameStats ();
 	}
 
+	void HandleGameStats() {
+		score += (int)Time.time;
+		gameScoreText.text = score.ToString ();
+		minionCountText.text = currentMinions.ToString() + " / " + MAX_MINIONS.ToString ();
+		wizardHealthText.text = health.ToString();
+	}
+ 
 	void HandleInput ()
 	{
 		// Keyboard horizontal movement
@@ -113,7 +132,7 @@ public class WizardController : MonoBehaviour {
 	}
 
 	void ConvertMinion (GameObject enemy) {
-		if (currentMinions < maxMinions) {
+		if (currentMinions < MAX_MINIONS) {
 			Vector3 position = enemy.transform.position;
 
 			Destroy(enemy);
