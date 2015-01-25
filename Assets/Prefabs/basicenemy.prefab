@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6100784}
   - 114: {fileID: 11422552}
   m_Layer: 0
-  m_Name: BasicEnemy
+  m_Name: basicenemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11de52ae34d4dff409381e289aded8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyRange: 2
   speed: 2
+  enemyRange: 2
   direction: 1
 --- !u!212 &21200784
 SpriteRenderer:
