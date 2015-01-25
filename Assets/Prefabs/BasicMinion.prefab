@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  JUMP_HEIGHT: 500
   state: 0
 --- !u!212 &21215938
 SpriteRenderer:

@@ -9,7 +9,9 @@ TagManager:
   - enemy
   - PlatformBorder
   - Platform
+  - 
   - Minion
+  - JumpTrigger
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
