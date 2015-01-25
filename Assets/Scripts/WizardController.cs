@@ -11,6 +11,7 @@ public class WizardController : MonoBehaviour {
 	private int MAX_SPEED = 30;
 
 
+
 	// Update is called once per frame
 	void Update () {
 		// Keyboard horizontal movement
@@ -30,10 +31,14 @@ public class WizardController : MonoBehaviour {
 				numJump++;
 			}
 		}
+
+		transform.localScale += Vector3 (0.1f, 0.0f, 0.0f);
 	}
 
+
 	void OnCollisionEnter2D(Collision2D col) {
-		//http://www.youtube.com/watch?v=t1GB1dl_aj0
+
+		//http://www.youtube.com/watch?v=t1GB1dl_aj
 		if (col.gameObject.tag == "Ground") {
 			// when we collide with ground 
 			isJumping = false;
