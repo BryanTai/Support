@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21265748}
   - 114: {fileID: 11465748}
   m_Layer: 0
-  m_Name: CommandBubble 1
+  m_Name: CommandBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8502ce03906f3ac4e934fbc300872146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
+  timeLeft: 0
+  active: 0
 --- !u!212 &21265748
 SpriteRenderer:
   m_ObjectHideFlags: 1

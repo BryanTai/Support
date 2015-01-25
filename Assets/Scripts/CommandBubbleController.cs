@@ -14,10 +14,11 @@ public class CommandBubbleController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		timeLeft -= Time.deltaTime;
 
 		if (timeLeft <= 0) {
 			Disable ();
+		} else {
+			timeLeft -= Time.deltaTime;
 		}
 	}
 

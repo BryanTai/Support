@@ -372,7 +372,7 @@ MonoBehaviour:
   jumpHeight: 500
   numJump: 0
   isJumping: 0
-  commandBubble: {fileID: 405604, guid: a66339f9ad6b4fe4a8287d66a48faa17, type: 2}
+  commandBubble: {fileID: 1427504305}
   mainCamera: {fileID: 1761988756}
 --- !u!1 &456290993
 GameObject:
@@ -1831,7 +1831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8502ce03906f3ac4e934fbc300872146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
+  timeLeft: 0
+  active: 0
 --- !u!1001 &1505005146
 Prefab:
   m_ObjectHideFlags: 0
