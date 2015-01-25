@@ -10,10 +10,16 @@ public class WizardController : MonoBehaviour {
 	public bool isJumping = false;
 
 	public Transform commandBubble;
+	public Transform minion;
 	public Camera mainCamera;
 
 	public int maxMinions;
-	int currentMinions = 0;
+	public int currentMinions;
+
+	void Start(){
+		currentMinions = GameObject.FindGameObjectsWithTag ("Minion").Length;
+		maxMinions = 5;
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -96,12 +102,14 @@ public class WizardController : MonoBehaviour {
 		}
 	}
 
-	void ConvertMinion (GameObject enemy)
-	{
-		if (currentMinions <= maxMinions) {
-			//Vector3 position = enemy.transform.position;
+	void ConvertMinion (GameObject enemy) {
+		if (currentMinions < maxMinions) {
+			Vector3 position = enemy.transform.position;
 
 			// TODO: instantiate minions here
+			Destroy(enemy);
+			Instantiate(minion, position, Quaternion.identity);
+			currentMinions++;
 		}
 	}
 }
