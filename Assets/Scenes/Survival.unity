@@ -1278,8 +1278,8 @@ GameObject:
   - 61: {fileID: 944790279}
   - 114: {fileID: 944790283}
   m_Layer: 0
-  m_Name: basicenemy
-  m_TagString: enemy
+  m_Name: BasicEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2406,8 +2406,8 @@ GameObject:
   - 61: {fileID: 1409777102}
   - 114: {fileID: 1409777101}
   m_Layer: 0
-  m_Name: basicenemy
-  m_TagString: enemy
+  m_Name: BasicEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3319,8 +3319,8 @@ GameObject:
   - 61: {fileID: 2017149463}
   - 114: {fileID: 2017149462}
   m_Layer: 0
-  m_Name: basicenemy
-  m_TagString: enemy
+  m_Name: BasicEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
