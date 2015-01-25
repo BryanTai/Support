@@ -73,6 +73,7 @@ MonoBehaviour:
   JUMP_HEIGHT: 500
   randomJumpTimer: 0
   state: 0
+  targetEnemy: {fileID: 0}
 --- !u!212 &21215938
 SpriteRenderer:
   m_ObjectHideFlags: 1
