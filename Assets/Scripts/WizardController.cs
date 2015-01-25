@@ -10,6 +10,7 @@ public class WizardController : MonoBehaviour {
 	public bool isJumping = false;
 
 	public Transform commandBubble;
+	public Transform minion;
 	public Camera mainCamera;
 
 	public int maxMinions;
@@ -102,6 +103,8 @@ public class WizardController : MonoBehaviour {
 			Vector3 position = enemy.transform.position;
 
 			// TODO: instantiate minions here
+			Destroy(enemy);
+			Instantiate(minion, position, Quaternion.identity);
 		}
 	}
 }
