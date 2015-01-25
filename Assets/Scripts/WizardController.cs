@@ -5,6 +5,7 @@ public class WizardController : MonoBehaviour {
 
 	const float SPEED = 10;
 	public const int MAX_HEALTH = 10;
+	const string MINON_NAME = "BasicMinion";
 
 	public float jumpHeight;
 	public int numJump;
@@ -113,9 +114,10 @@ public class WizardController : MonoBehaviour {
 		if (currentMinions < maxMinions) {
 			Vector3 position = enemy.transform.position;
 
-			// TODO: instantiate minions here
 			Destroy(enemy);
-			Instantiate(minion, position, Quaternion.identity);
+			Transform minionObject = Instantiate(minion, position, Quaternion.identity) as Transform;
+			minionObject.name = MINON_NAME;
+			minionObject.parent = GameObject.Find("Minions").transform;
 			currentMinions++;
 		}
 	}
