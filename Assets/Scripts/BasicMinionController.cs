@@ -10,14 +10,16 @@ public class BasicMinionController : AiActorController {
 	GameObject commandBubble;
 
 	// Use this for initialization
-	void Start () {
+	new void Start () {
+		base.Start ();
 		speed = 2;
 
 		commandBubble = GameObject.Find ("CommandBubble");
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
+		base.Update ();
 		LookForCommandBubble ();
 
 		if (state == AiState.ATTACK) {
