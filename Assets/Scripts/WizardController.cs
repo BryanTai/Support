@@ -89,7 +89,7 @@ public class WizardController : MonoBehaviour {
 
 				ConvertMinion (other.gameObject);
 				Debug.Log("STOMP! " + relativePosition );
-			}else{
+			} else {
 				//Get hurt, lose a health
 				// Activate invincibility frames
 

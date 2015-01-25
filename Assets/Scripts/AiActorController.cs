@@ -38,15 +38,15 @@ public abstract class AiActorController : MonoBehaviour {
 	}
 
 	protected void Move(Vector3 target) {
-		float deltaX = target.x - transform.position.x;
-
-		int direction;
-
-		if (deltaX > 0) { direction = 1;} 
-		else {direction = -1;}
+		int xDirection = (target.x > transform.position.x) ? 1 : -1;
 		
-		Vector3 attack = new Vector3(direction * 2 * speed * Time.deltaTime, 0);
+		Vector3 attack = new Vector3(xDirection * 2 * speed * Time.deltaTime, 0);
 		transform.Translate(attack);
+
+		// Jump if target is above
+		if (target.y > transform.position.y && !inAir) {
+			Jump ();
+		}
 	}
 
 	protected void OnTriggerEnter2D(Collider2D trigger) {

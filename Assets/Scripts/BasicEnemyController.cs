@@ -93,10 +93,10 @@ public class BasicEnemyController : AiActorController {
 	}
 
 	//Basic movement for Basic Enemy
-	void Waddle ()
-	{
-		Vector3 move = new Vector3(direction * speed * Time.deltaTime, 0);
-		transform.Translate(move);
+	void Waddle () {
+		// Create target vector speed units to the left/right
+		Vector3 target = new Vector3(direction * speed + transform.position.x , transform.position.y);
+		Move (target);
 	}
 
 
