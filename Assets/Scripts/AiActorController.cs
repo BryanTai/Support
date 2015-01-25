@@ -34,7 +34,6 @@ public abstract class AiActorController : MonoBehaviour {
 
 	void RandomizeJumpTimer() {
 		randomJumpTimer = Random.value * (MAX_JUMP_TIME - MIN_JUMP_TIME) + MIN_JUMP_TIME;
-		Debug.Log (randomJumpTimer);
 	}
 
 	protected void Move(Vector3 target) {
