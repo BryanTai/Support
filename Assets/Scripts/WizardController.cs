@@ -61,6 +61,8 @@ public class WizardController : MonoBehaviour {
 	void CreateCommandBubble (Vector3 location) {
 		CommandBubbleController cbc = (CommandBubbleController) commandBubble.gameObject.GetComponent("CommandBubbleController");
 		cbc.Enable (location);
+
+
 	}
 
 	void OnCollisionEnter2D(Collision2D other){
