@@ -64,4 +64,22 @@ public abstract class AiActorController : MonoBehaviour {
 			inAir = false;
 		}
 	}
+
+	protected GameObject FindNearestGameObject(string tag) {
+		GameObject[] gameObjects = GameObject.FindGameObjectsWithTag (tag);
+
+		GameObject nearestObject = null;
+		float nearestDistance = Mathf.Infinity;
+
+		foreach(GameObject o in gameObjects){
+			float distance = Vector3.Distance(o.transform.position, this.transform.position);
+			if( distance < nearestDistance){
+				nearestObject = o;
+				nearestDistance = distance;
+			}
+		}
+
+		return nearestObject;
+
+	}
 }

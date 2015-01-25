@@ -42,8 +42,7 @@ public class BasicEnemyController : AiActorController {
 	}
 
 	//If Wizard or Minion in range, attack them.
-	void CheckForAttack ()
-	{
+	void CheckForAttack () {
 		float distance;
 		GameObject possibleTarget;
 
@@ -53,30 +52,21 @@ public class BasicEnemyController : AiActorController {
 		distance = wizarddist;
 
 		//Find the closest Minion
+		GameObject minion = FindNearestGameObject("Minion");
 
-		minions = GameObject.FindGameObjectsWithTag ("Minion");
-		if (minions.Length != 0) {
-			GameObject closestminion = minions[0];
-			float miniondist = Mathf.Infinity;
-			foreach(GameObject m in minions){
-				float tempdist = Vector3.Distance(m.transform.position, this.transform.position);
-				if( tempdist < miniondist){
-					closestminion = m;
-					miniondist = tempdist;
-				}
-			}
+		if (minion != null) {
+			float minionDistance = Vector3.Distance(minion.transform.position, this.transform.position);
 
 			// Compare wizard distance to minion distance
-			if (wizarddist > miniondist){
-				distance = miniondist;
-				possibleTarget = closestminion;
+			if (wizarddist > minionDistance){
+				distance = minionDistance;
+				possibleTarget = minion;
 			}
 		}
 
 
 		//If Wizard/Minion in range, chase them down forever.
 		if (distance < enemyRange) {
-			Debug.Log("ATTACK! ATTACK!" + possibleTarget.ToString());
 			attackMode = true;
 			myTarget = possibleTarget;
 		}
