@@ -4,6 +4,7 @@ using System.Collections;
 public class WizardController : MonoBehaviour {
 
 	const float SPEED = 10;
+	public const int MAX_HEALTH = 10;
 
 	public float jumpHeight;
 	public int numJump;
@@ -12,9 +13,12 @@ public class WizardController : MonoBehaviour {
 	public Transform commandBubble;
 	public Transform minion;
 	public Camera mainCamera;
+	public Transform healthbar;
 
 	public int maxMinions;
-	public int currentMinions;
+	public int currentMinions = 0;
+
+	public int health = 10;
 
 	void Start(){
 		currentMinions = GameObject.FindGameObjectsWithTag ("Minion").Length;
@@ -102,8 +106,7 @@ public class WizardController : MonoBehaviour {
 		}
 	}
 
-	void ConvertMinion (GameObject enemy)
-	{
+	void ConvertMinion (GameObject enemy) {
 		if (currentMinions < maxMinions) {
 			Vector3 position = enemy.transform.position;
 

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BasicEnemyController : AiActorController
-{
+public class BasicEnemyController : AiActorController {
 
 	public int enemyRange;
 	bool attackMode = false;
@@ -14,19 +13,17 @@ public class BasicEnemyController : AiActorController
 	//In attack mode, this is the wizard/minion that this enemy will chase
 	GameObject myTarget; 
 
-
-
 	// Use this for initialization
-	void Start ()
-	{
+	new void Start () {
+		base.Start ();
 		speed = 2;
 		wizard = GameObject.Find ("Wizard");
-
 	}
 
 	// Update is called once per frame
-	void Update ()
-	{
+	new void Update () {
+		base.Update ();
+
 		if (attackMode) {
 			Attack ();
 		} else {
@@ -85,17 +82,14 @@ public class BasicEnemyController : AiActorController
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D trigger) {
-			if (!attackMode && trigger.gameObject.tag == "PlatformBorder") {
-				// Turn around when at edge of platform
-				direction *= -1;
-			} else if (attackMode) {
-				
-			}
-	}
-
-	void OnCollisionEnter2D(Collision2D other){
-
+	new void OnTriggerEnter2D(Collider2D trigger) {
+		base.OnTriggerEnter2D (trigger);
+		if (!attackMode && trigger.gameObject.tag == "PlatformBorder") {
+			// Turn around when at edge of platform
+			direction *= -1;
+		} else if (attackMode) {
+			
+		}
 	}
 
 	//Basic movement for Basic Enemy
