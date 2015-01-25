@@ -20,7 +20,7 @@ public class WizardController : MonoBehaviour {
 	public Text wizardHealthText;
 
 	// Minions
-	const int MAX_MINIONS = 5;
+	public const int MAX_MINIONS = 10;
 	public int currentMinions;
 	public Transform minion;
 	const string MINON_NAME = "BasicMinion";
@@ -112,7 +112,7 @@ public class WizardController : MonoBehaviour {
 			if (landedOnTopOfActor){
 				//Successful goomba stomp, convert enemy to minion
 				ConvertMinion (other.gameObject);
-				Debug.Log("STOMP! " + relativePosition );
+
 			} else {
 				//Get hurt, lose a health
 				// TODO: Activate invincibility frames
@@ -120,7 +120,7 @@ public class WizardController : MonoBehaviour {
 				if(health>0){health -= 1;}
 				
 				((BarAnimation) healthbar.gameObject.GetComponent("BarAnimation")).UpdateBar();
-				Debug.Log("OW! " + relativePosition );
+
 			}
 		}
 
