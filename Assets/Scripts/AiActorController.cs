@@ -13,6 +13,8 @@ public abstract class AiActorController : MonoBehaviour {
 	const double MAX_JUMP_TIME = 10;
 	const double MIN_JUMP_TIME = 1;
 
+	public AudioSource jumpSound;
+
 	// Use this for initialization
 	protected void Start () {
 		RandomizeJumpTimer ();
@@ -57,6 +59,8 @@ public abstract class AiActorController : MonoBehaviour {
 	protected void Jump() {
 		rigidbody2D.AddForce (Vector2.up * JUMP_HEIGHT);
 		inAir = true;
+
+		jumpSound.Play ();
 	}
 
 	protected void OnCollisionEnter2D(Collision2D other){ 

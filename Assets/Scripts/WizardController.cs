@@ -29,7 +29,12 @@ public class WizardController : MonoBehaviour {
 	public Transform healthbar;
 	public int health = 10;
 	public const int MAX_HEALTH = 10;
-	
+
+	// Audio
+	public AudioSource convertClip;
+	public AudioSource jumpClip;
+
+
 	void Start(){
 		currentMinions = GameObject.FindGameObjectsWithTag ("Minion").Length;
 		gameScoreText.text = "Score: " + score.ToString();
@@ -84,6 +89,7 @@ public class WizardController : MonoBehaviour {
 			rigidbody2D.AddForce (Vector2.up * jumpHeight);
 			isJumping = true;
 			numJump++;
+			jumpClip.Play();
 		}
 	}
 
@@ -140,6 +146,8 @@ public class WizardController : MonoBehaviour {
 			minionObject.name = MINON_NAME;
 			minionObject.parent = GameObject.Find("Minions").transform;
 			currentMinions++;
+			convertClip.Play();
+
 		}
 	}
 }
