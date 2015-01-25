@@ -3,24 +3,26 @@ using System.Collections;
 
 public class WizardController : MonoBehaviour {
 
-	const float SPEED = 10;
-	public const int MAX_HEALTH = 10;
-	const string MINON_NAME = "BasicMinion";
-
+	// Movements
 	public float jumpHeight;
 	public int numJump;
 	public bool isJumping = false;
-
+	const float SPEED = 10;
+	
 	public Transform commandBubble;
-	public Transform minion;
 	public Camera mainCamera;
-	public Transform healthbar;
 
+	// Minions
 	public int maxMinions;
-	public int currentMinions = 0;
+	public int currentMinions;
+	public Transform minion;
+	const string MINON_NAME = "BasicMinion";
 
+	// Health
+	public Transform healthbar;
 	public int health = 10;
-
+	public const int MAX_HEALTH = 10;
+	
 	void Start(){
 		currentMinions = GameObject.FindGameObjectsWithTag ("Minion").Length;
 		maxMinions = 5;
