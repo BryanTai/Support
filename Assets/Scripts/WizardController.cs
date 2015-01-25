@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class WizardController : MonoBehaviour {
@@ -12,8 +13,14 @@ public class WizardController : MonoBehaviour {
 	public Transform commandBubble;
 	public Camera mainCamera;
 
+	// Stats
+	public Text gameScoreText;
+	public int score = 0;
+	public Text minionCountText;
+	public Text wizardHealthText;
+
 	// Minions
-	public int maxMinions;
+	const int MAX_MINIONS = 5;
 	public int currentMinions;
 	public Transform minion;
 	const string MINON_NAME = "BasicMinion";
@@ -25,14 +32,24 @@ public class WizardController : MonoBehaviour {
 	
 	void Start(){
 		currentMinions = GameObject.FindGameObjectsWithTag ("Minion").Length;
-		maxMinions = 5;
+		gameScoreText.text = score.ToString();
+		minionCountText.text = currentMinions.ToString() + " / " + MAX_MINIONS.ToString ();
+		wizardHealthText.text = health.ToString();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		HandleInput ();
+		HandleGameStats ();
 	}
 
+	void HandleGameStats() {
+		score += (int)Time.time;
+		gameScoreText.text = score.ToString ();
+		minionCountText.text = currentMinions.ToString() + " / " + MAX_MINIONS.ToString ();
+		wizardHealthText.text = health.ToString();
+	}
+ 
 	void HandleInput ()
 	{
 		// Keyboard horizontal movement
@@ -115,7 +132,7 @@ public class WizardController : MonoBehaviour {
 	}
 
 	void ConvertMinion (GameObject enemy) {
-		if (currentMinions < maxMinions) {
+		if (currentMinions < MAX_MINIONS) {
 			Vector3 position = enemy.transform.position;
 
 			Destroy(enemy);
