@@ -784,6 +784,7 @@ GameObject:
   - 212: {fileID: 1550350161}
   - 50: {fileID: 1550350160}
   - 58: {fileID: 1550350159}
+  - 114: {fileID: 1550350163}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Untagged
@@ -846,11 +847,22 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1550350158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.80999994, y: -.129999995, z: 0}
+  m_LocalPosition: {x: 4.78000021, y: -.129999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1841565946}
   m_RootOrder: 0
+--- !u!114 &1550350163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1550350158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ffde78b447a4961bc78d45d4e0850e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1761988752
 GameObject:
   m_ObjectHideFlags: 0
