@@ -3,48 +3,78 @@ using System.Collections;
 
 public class WizardController : MonoBehaviour {
 
-	public float speed;
+	const float SPEED = 10;
 
 	public float jumpHeight;
 	public int numJump;
 	public bool isJumping = false;
-	private int MAX_SPEED = 30;
+
+	public Transform commandBubble;
+	public Camera mainCamera;
+
 
 
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+		HandleInput ();
+	}
+
+	void HandleInput ()
+	{
 		// Keyboard horizontal movement
-		if (speed > MAX_SPEED) {
-			speed= MAX_SPEED;
-		}
-		var translationH = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
-		transform.Translate (translationH, 0, 0);
+
+		float horizontalComponent = Input.GetAxis ("Horizontal");
+		MoveH (horizontalComponent);
 
 		// Keyboard jump movement
-		if (Input.GetKeyDown (KeyCode.W)) {
-			if(isJumping == false || numJump < 2) {
-				// only jump if we are on the ground
-				rigidbody2D.AddForce (Vector2.up * jumpHeight);
-				isJumping = true;
-				numJump++;
-			}
+		if (Input.GetKeyDown (KeyCode.W) 
+		    || Input.GetKeyDown(KeyCode.UpArrow)) {
+			Jump ();
+		}
+
+
+		if (Input.GetMouseButtonDown (0)) {
+			//Debug.Log(Input.mousePosition);
+			Vector3 commandBubblePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+			commandBubblePosition.z = 0;
+			CreateCommandBubble (commandBubblePosition);
 		}
 	}
 
-
-void OnCollisionEnter2D(Collision2D other){
-	
-	if (other.gameObject.tag == "enemy") {
-		//Wizard touched enemy, lose a health
-		// Activate invincibility frames
-	}
-	
-	if (other.gameObject.tag == "Platform") {
-		// when we collide with ground 
-		isJumping = false;
-		numJump = 0;
+	void MoveH (float horizontalComponent)
+	{
 		
+		transform.Translate (horizontalComponent* SPEED * Time.deltaTime, 0, 0);
 	}
-}
+
+	void Jump ()
+	{
+		if (isJumping == false || numJump < 2) {
+			// only jump if we are on the ground
+			rigidbody2D.AddForce (Vector2.up * jumpHeight);
+			isJumping = true;
+			numJump++;
+		}
+	}
+
+	void CreateCommandBubble (Vector3 location) {
+		CommandBubbleController cbc = (CommandBubbleController) commandBubble.gameObject.GetComponent("CommandBubbleController");
+		cbc.Enable (location);
+	}
+
+	void OnCollisionEnter2D(Collision2D other){
+		
+		if (other.gameObject.tag == "enemy") {
+			//Wizard touched enemy, lose a health
+			// Activate invincibility frames
+		}
+		
+		if (other.gameObject.tag == "Platform") {
+			// when we collide with ground 
+			isJumping = false;
+			numJump = 0;
+			
+		}
+	}
+
 }
