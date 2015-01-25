@@ -13,7 +13,7 @@ public class WizardController : MonoBehaviour {
 	public Camera mainCamera;
 
 	public int maxMinions;
-	int currentMinions;
+	int currentMinions = 0;
 
 	// Update is called once per frame
 	void Update () {
@@ -99,7 +99,7 @@ public class WizardController : MonoBehaviour {
 	void ConvertMinion (GameObject enemy)
 	{
 		if (currentMinions <= maxMinions) {
-			Vector3 position = enemy.transform.position;
+			//Vector3 position = enemy.transform.position;
 
 			// TODO: instantiate minions here
 		}
