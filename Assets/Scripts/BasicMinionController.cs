@@ -6,6 +6,7 @@ public class BasicMinionController : AiActorController {
 	public enum AiState { STANDBY, MOVE, ATTACK }
 	public AiState state = AiState.STANDBY;
 	public Animator animator;
+	public GameObject wizard;
 
 	GameObject commandBubble;
 
@@ -15,6 +16,8 @@ public class BasicMinionController : AiActorController {
 	new void Start () {
 		base.Start ();
 		speed = 3;
+
+		wizard = GameObject.Find ("Wizard");
 
 		commandBubble = GameObject.Find ("CommandBubble");
 	}
@@ -40,9 +43,10 @@ public class BasicMinionController : AiActorController {
 
 	void Die() {
 		animator.SetBool ("isAlive", false);
+		((WizardController)wizard.GetComponent ("WizardController")).currentMinions--;
 		// TODO: FIXME THIS CODE IS A HACK
 		StartCoroutine (removeFromScreen (2.0f));
-		Destroy (this);
+		Destroy (this.gameObject);
 	}
 	
 	private IEnumerator removeFromScreen(float seconds) {

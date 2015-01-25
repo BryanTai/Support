@@ -38,8 +38,7 @@ public class BasicEnemyController : AiActorController {
 		animator.SetBool ("isAlive", false);
 		// TODO: FIXME THIS CODE IS A HACK
 		StartCoroutine (removeFromScreen (2.0f));
-		
-		Destroy (this);
+		Destroy (this.gameObject);
 	}
 	
 	private IEnumerator removeFromScreen(float seconds) {
